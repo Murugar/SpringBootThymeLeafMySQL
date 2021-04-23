@@ -27,6 +27,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>User name</th>
                     <th>Email</th>
                     <th class="hidden-xs">Registered</th>
@@ -35,8 +36,11 @@
                 </thead>
                 <tr
                         th:class="${user.enabled} ? ${user.role} : 'disabled'"
-                        th:each="user : ${users}" th:onclick="|window.open('${'/user/' + user.id}', '_self')|"
+                        th:each="user : ${users}" 
+                        th:data-parameter1="${user.id}" 
+                       
                 >
+                    <td data-label="User name" th:text="${user.id}">ID</td>
                     <td data-label="User name" th:text="${user.name}">Name</td>
                     <td data-label="User email" th:text="${user.email}">Email</td>
                     <td class="hidden-xs" data-label="Registered" th:text="${{user.registered}}">Registered</td>

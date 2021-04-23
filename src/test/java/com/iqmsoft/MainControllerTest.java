@@ -35,7 +35,7 @@ public class MainControllerTest extends BaseTest {
 	private UserRepo userRepo;
 	
 	private Page<User> mockFindByNameOrEmail(List<User> users, int pageNum) {
-		Pageable pageable = new PageRequest(pageNum, 5, new Sort(Sort.Direction.ASC, "name"));
+		Pageable pageable = PageRequest.of(pageNum, 5, Sort.by(Sort.Direction.ASC, "name"));
 		Page<User> userPage = new PageImpl<>(users, pageable, 7);
 		when(userRepo.findByNameOrEmail("user", pageable)).thenReturn(userPage);
 		return userPage;
@@ -92,7 +92,7 @@ public class MainControllerTest extends BaseTest {
 	@Test
 	public void editTest() throws Exception {
 		// given
-		when(userRepo.findOne(1)).thenReturn(user1);
+		when(userRepo.findById(1).get()).thenReturn(user1);
 		
 		// when
 		ResultActions result = mvc.perform(get("/user/{id}", 1));
@@ -132,7 +132,7 @@ public class MainControllerTest extends BaseTest {
 	@Test
 	public void deleteTest() throws Exception {
 		// given
-		doNothing().when(userRepo).delete(1);
+		doNothing().when(userRepo).deleteById(1);
 		
 		// when
 		ResultActions result = mvc.perform(get("/user/delete/{id}", 1));

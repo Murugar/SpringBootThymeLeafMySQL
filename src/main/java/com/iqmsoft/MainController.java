@@ -47,7 +47,7 @@ public class MainController {
     
     @GetMapping("/user/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("user", repo.findOne(id));
+        model.addAttribute("user", repo.findById(id));
         return "edit";
     }
     
@@ -63,7 +63,7 @@ public class MainController {
     
     @GetMapping("/user/delete/{id}")
     public String delete(@PathVariable Integer id) {
-        repo.delete(id);
+        repo.deleteById(id);
         return "redirect:/";
     }
     

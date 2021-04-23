@@ -27,7 +27,7 @@ public class UserRepoTest extends BaseTest {
 	@Before
 	public void setUp() throws Exception {
 		// given
-		userRepo.save(Arrays.asList(user1, user2, user3));
+		userRepo.saveAll(Arrays.asList(user1, user2, user3));
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ public class UserRepoTest extends BaseTest {
 	@Test
 	public void findByNameAndEmailTest() throws Exception {
 		// when
-		Page<User> usersPage = userRepo.findByNameOrEmail("1", new PageRequest(0, 20));
+		Page<User> usersPage = userRepo.findByNameOrEmail("1", PageRequest.of(0, 20));
 		
 		// then
 		assertThat(usersPage).isNotNull();
@@ -69,7 +69,7 @@ public class UserRepoTest extends BaseTest {
 		);
 		
 		// when
-		usersPage = userRepo.findByNameOrEmail("@test", new PageRequest(0, 20));
+		usersPage = userRepo.findByNameOrEmail("@test", PageRequest.of(0, 20));
 		
 		// then
 		assertThat(usersPage).isNotNull();
