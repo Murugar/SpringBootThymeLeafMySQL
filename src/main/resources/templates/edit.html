@@ -86,6 +86,11 @@
                                     <button type="submit" class="btn btn-primary">
                                         <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Save
                                     </button>
+                                    
+                                     <a class="btn btn-default" 
+                                       th:href="@{|/user/delete/${id}|}">
+                                       <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>  Delete
+                                    </a>
                                  
                                     <button type="reset" class="btn btn-default" onclick="window.open('/','_self')">
                                         <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>  Cancel
