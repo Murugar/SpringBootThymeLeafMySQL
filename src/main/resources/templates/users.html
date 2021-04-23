@@ -38,7 +38,7 @@
                         th:class="${user.enabled} ? ${user.role} : 'disabled'"
                         th:each="user : ${users}" 
                         th:data-shit="#{strings.toString(user.id)}"
-                        th:onclick="|window.open('/user/10', '_self')|"
+                        th:onclick="|window.open('/user/${user.id}', '_self')|"
                          
                 >
                     <td data-label="User name" th:text="${user.id}">ID</td>
