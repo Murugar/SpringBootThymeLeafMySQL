@@ -73,13 +73,7 @@
                                         placeholder="Registered"/>
                             </div>
                             
-                            <!-- Enabled -->
-                            <div class="checkbox col-sm-6">
-                                <label>
-                                    <input th:checked="*{enabled}" type="checkbox" th:field="*{enabled}" id="enabled"
-                                           name="enabled"/> Enabled
-                                </label>
-                            </div>
+                          
                         
                         </div>
                     
@@ -92,10 +86,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Save
                                     </button>
-                                    <a class="btn btn-default" th:classappend="${user.id == null} ? 'hidden'"
-                                       th:href="${'/user/delete/' + user.id}">
-                                       <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>  Delete
-                                    </a>
+                                 
                                     <button type="reset" class="btn btn-default" onclick="window.open('/','_self')">
                                         <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>  Cancel
                                     </button>
